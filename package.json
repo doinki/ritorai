@@ -1,0 +1,58 @@
+{
+  "name": "ritorai",
+  "license": "MIT",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=17"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "packageManager": "pnpm@9.13.0",
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "tsup",
+    "release": "pnpm run build && pnpm run publint && changeset publish",
+    "typecheck": "tsc",
+    "publint": "publint"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.9",
+    "@types/node": "^22.9.0",
+    "publint": "^0.2.12",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": "^0.24.0"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": "https://github.com/doinki/ritorai/issues",
+  "homepage": "https://github.com/doinki/ritorai#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doinki/ritorai.git"
+  }
+}
